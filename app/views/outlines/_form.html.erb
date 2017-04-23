@@ -1,0 +1,42 @@
+<%= form_for(@outline) do |f| %>
+  <% if @outline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@outline.errors.count, "error") %> prohibited this outline from being saved:</h2>
+
+      <ul>
+      <% @outline.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h4><%= "What ROLE does your goal represent?"%></h4>
+    <h5>Personal - It will improve an area of your PERSONAL life</h5>
+    <h5>Professional - It will improve an area of your PROFESSIONAL life</h5>
+    <h5>Looking Ahead - Things you want to do that you're not currently doing</h5>
+    <h5>Stewardship - Thing you want to do to improve the lives of those around you</h5>
+
+    <%= f.select(:roles, options_for_select([ "PERSONAL", "PROFESSIONAL","LOOKING AHEAD","STEWARDSHIP" ]), :prompt => "Please select") %>
+  </div>
+  <div class="field">
+    <h4><%= "State your Goal or 'The Talk'" %></h4>
+    <%= f.text_field :goals %>
+  </div>
+  <div class="field">
+     <h4><%= "State your Responsiblilites or 'The Walk'" %></h4>
+    <%= f.text_field :responsibilities %>
+  </div>
+  <div class="field">
+    <h4><%= "What is the Action item?  How do you use your 24 hours/day to accomplish your goal? " %></h4>
+    <%= f.text_field :action %>
+  </div>
+  <div class="field">
+     <h4><%= "What the timeline? How often will you work on your goal?" %></h4>
+    <%= f.text_field :timeline %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Commit Goal" %>
+  </div>
+<% end %>

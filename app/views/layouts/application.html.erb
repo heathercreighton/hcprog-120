@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success Outline</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navigation">
+		<div class="pull-right">
+			<h4><%= link_to "All Goals", outlines_path %> | <%= link_to "Personal Goals", personal_path %> | <%= link_to "Professional Goals", professional_path %> | <%= link_to "Looking Ahead", ahead_path %> | <%= link_to "Stewardship Goals", stewardship_path %></h4> 
+		</div>
+
+		<p class="success-title"><%= image_tag "p7d.png", width: "200px", height: "150px" %>SUCCESS OUTLINE </p>
+
+	</div>
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+</html>

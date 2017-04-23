@@ -1,0 +1,30 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @outline.roles %>
+</p>
+
+<p>
+  <strong>Goals:</strong>
+  <%= @outline.goals %>
+</p>
+
+<p>
+  <strong>Responsibilities:</strong>
+  <%= @outline.responsibilities %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @outline.action %>
+</p>
+
+<p>
+  <strong>Timeline:</strong>
+  <%= @outline.timeline %>
+</p>
+
+<%= link_to 'Edit', edit_outline_path(@outline) %> |
+<%= link_to 'Back', outlines_path %>

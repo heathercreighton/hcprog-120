@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>Personal Goals</h1>
+	<div class="well">
+
+<table class = "table">
+  <thead>
+    <tr>
+    
+      <th><p>Goals</p><p>"The Talk"</p></th>
+      <th><p>Responsibilities</p><p>"The Walk</p></th>
+       </th> 
+      <th><p>Action</p><p>How do you use your 24 hours/day to accomplish</p></th>
+      <th>Timeline</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @outlines.empty?  %>
+    		<td><%= "Add some goals!" %></td>
+    <% else %>	
+	    <% @outlines.each do |outline| %>
+
+	      <tr>
+	        <td><%= outline.goals %></td>
+	        <td><%= outline.responsibilities %></td>
+	        <td><%= outline.action %></td>
+	        <td><%= outline.timeline %></td>
+	        <td><%= link_to 'Show', outline %></td>
+	        <td><%= link_to 'Edit', edit_outline_path(outline) %></td>
+	        <td><%= link_to 'Destroy', outline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>  
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+
+<%= link_to 'Add a New Goal', new_outline_path %>
