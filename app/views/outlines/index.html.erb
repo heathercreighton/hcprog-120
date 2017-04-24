@@ -15,9 +15,6 @@
   </thead>
 
   <tbody>
-    <% if @outlines.empty?  %>
-        <td><%= "Add some goals!" %></td>
-    <% else %>  
       <% @outlines.each do |outline| %>
 
         <tr>
@@ -31,7 +28,7 @@
           <td><%= link_to 'Destroy', outline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>  
-    <% end %>
+
   </tbody>
 </table>
 
