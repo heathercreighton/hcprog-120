@@ -5,7 +5,8 @@ class OutlinesController < ApplicationController
   # GET /outlines.json
   def index
     # @outlines = Outline.order(:roles)
-    @outlines = Outline.order(:roles)
+    @outlines = Outline.order(:roles).where(user_id: current_user.id)
+    
   end
 
   # GET /outlines/1
@@ -22,8 +23,14 @@ class OutlinesController < ApplicationController
   def edit
   end
 
-  #GET /outlines/by_role
-
+  # #GET /outlines/by_role
+  # def export
+  # @data = Foo.order(:created_at)
+  # respond_to do |format|
+  #   format.html { redirect_to root_url }
+  #   format.csv { send_data @data.to_csv }
+  # end
+  # end
   
 
 
@@ -75,6 +82,6 @@ class OutlinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outline_params
-      params.require(:outline).permit(:roles, :goals, :responsibilities, :action, :timeline)
+      params.require(:outline).permit(:roles, :goals, :responsibilities, :action, :timeline, :user_id)
     end
 end

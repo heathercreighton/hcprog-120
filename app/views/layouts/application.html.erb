@@ -9,7 +9,14 @@
 <body>
 	<div class="navigation">
 		<div class="pull-right">
-			<h4><%= link_to "All Goals", root_path %> | <%= link_to "Personal Goals", personal_path %> | <%= link_to "Professional Goals", professional_path %> | <%= link_to "Looking Ahead", ahead_path %> | <%= link_to "Stewardship Goals", stewardship_path %></h4> 
+			<h4><%= link_to "All Goals", root_path %> | <%= link_to "Personal Goals", personal_path %> | <%= link_to "Professional Goals", professional_path %> | <%= link_to "Looking Ahead", ahead_path %> | <%= link_to "Stewardship Goals", stewardship_path %>  
+
+			<% if user_signed_in? %>
+			|	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+			<% end %>
+
+
+			</h4> 
 		</div>
 
 		<p class="success-title"><%= image_tag "p7d.png", width: "200px", height: "150px" %>SUCCESS OUTLINE </p>

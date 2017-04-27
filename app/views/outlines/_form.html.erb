@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <h4><%= "What ROLE does your goal represent?"%></h4>
-    <h5>Personal - It will improve an area of your PERSONAL life</h5>
-    <h5>Professional - It will improve an area of your PROFESSIONAL life</h5>
-    <h5>Looking Ahead - Things you want to do that you're not currently doing</h5>
-    <h5>Stewardship - Thing you want to do to improve the lives of those around you</h5>
+    <div class="well">
+    <h3><%= "What ROLE does your goal represent?"%></h3>
+    <h5><strong>Personal</strong> - It will improve an area of your PERSONAL life</h5>
+    <h5><strong>Professional</strong> - It will improve an area of your PROFESSIONAL life</h5>
+    <h5><strong>Looking Ahead</strong> - Things you want to do that you're not currently doing</h5>
+    <h5><strong>Stewardship</strong> - Things you want to do to improve the lives of those around you</h5>
+  </div>  
 
     <%= f.select(:roles, options_for_select([ "PERSONAL", "PROFESSIONAL","LOOKING AHEAD","STEWARDSHIP" ]), :prompt => "Please select") %>
   </div>
+  <div class="field">
+    
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
   <div class="field">
     <h4><%= "State your Goal or 'The Talk'" %></h4>
     <%= f.text_field :goals %>

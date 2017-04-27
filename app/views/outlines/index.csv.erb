@@ -1,0 +1,5 @@
+<%- headers = ['Roles', 'Goals'] -%>
+<%= CSV.generate_line headers %>
+<%- @outlines.each do |outline| -%>
+<%= CSV.generate_line([outline.roles, outline.goals]) -%>
+<%- end -%>

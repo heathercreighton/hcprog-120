@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'personal' =>'roles#personal'
 
   get 'professional' =>'roles#professional'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :outlines
 
   root "outlines#index"
+  get 'export', to: 'outlines#export', as: :outlines_export
 
 
   # The priority is based upon order of creation: first created -> highest priority.
